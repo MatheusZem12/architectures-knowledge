@@ -75,8 +75,8 @@ With no boundaries in the code, the only boundary is the memory of whoever is wo
 So a throwaway script or a one-afternoon prototype can be written this way without a problem. The mistake is letting
 this code survive and grow.
 
-Note that it is not faster: across three runs of the measurement, it was always the slowest monolith, by a margin
-that varied from run to run. "No layers" does not mean "more efficient". The likely cause is the untyped maps, but
+Note that it is not faster: in every run of the measurement, it was slower than folders 02 to 06, by a margin that
+varied from run to run. "No layers" does not mean "more efficient". The likely cause is the untyped maps, but
 that was not investigated in depth.
 
 ## When to use it

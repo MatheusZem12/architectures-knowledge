@@ -108,10 +108,12 @@ Same rules, same machine, **on localhost, with no real network latency** (see [`
 
 | | Monoliths (02 to 06) | Microservices |
 |---|---|---|
-| p50 of `POST /orders` | about 120 µs | about 585 µs, **about 5 times** |
-| Orders per second, sequentially | about 7,700 | about 1,600 |
-| Memory | about 18 MB | about 107 MB, **about 6 times** |
+| p50 of `POST /orders` | about 83 µs | about 500 µs, **about 6 times** |
+| Orders per second, sequentially | about 11,000 | about 1,900 |
+| Memory | about 18 MB | about 108 MB, **about 6 times** |
 | Binaries | 9.5 MB | 58 MB, in 6 processes |
+
+Across all runs, the latency ratio stayed between 4.3 and 6 times.
 
 On a real network, each hop adds even more time. On the other hand, notice what this table does **not** measure: the
 ability to scale only the catalog, or for a team to deploy without talking to the others. Those are the real gains,
@@ -137,7 +139,7 @@ Integration tests become expensive and indispensable.
 
 | You gain | You pay |
 |---|---|
-| Independent deploys per team | About 5 times the latency, and more on a real network |
+| Independent deploys per team | 4 to 6 times the latency, and more on a real network |
 | Independent scaling per service | No transactions: eventual consistency and sagas |
 | Partial outage, instead of total | Operations: monitoring, tracing, deploying N services |
 | Freedom of technology per service | Debugging a request that crosses 4 processes |
@@ -174,4 +176,4 @@ pkill -x notifications     # the sale goes on, and the notice is lost
 pkill -x catalog           # creating an order returns 503, and getting one still works
 ```
 
-**Next step:** [code principles](../principles/README.md), which apply to any of the architectures.
+**Next step:** [08. MVC](../08-mvc/README.md).
