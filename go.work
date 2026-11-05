@@ -1,0 +1,18 @@
+go 1.24
+
+use (
+	./01-spaghetti
+	./02-layered
+	./03-package-by-feature
+	./04-modular-monolith
+	./05-hexagonal
+	./06-clean-architecture
+	./07-microservices/services/catalog
+	./07-microservices/services/customers
+	./07-microservices/services/gateway
+	./07-microservices/services/notifications
+	./07-microservices/services/orders
+	./07-microservices/services/payments
+	./contract
+	./principles
+)
