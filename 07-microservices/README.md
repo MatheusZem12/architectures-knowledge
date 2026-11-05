@@ -108,9 +108,9 @@ Same rules, same machine, **on localhost, with no real network latency** (see [`
 
 | | Monoliths (02 to 06) | Microservices |
 |---|---|---|
-| p50 of `POST /orders` | about 83 µs | about 500 µs, **about 6 times** |
-| Orders per second, sequentially | about 11,000 | about 1,900 |
-| Memory | about 18 MB | about 108 MB, **about 6 times** |
+| p50 of `POST /orders` | about 80 µs | about 487 µs, **about 6 times** |
+| Orders per second, sequentially | about 11,900 | about 2,000 |
+| Memory | about 18 MB | about 105 MB, **about 6 times** |
 | Binaries | 9.5 MB | 58 MB, in 6 processes |
 
 Across all runs, the latency ratio stayed between 4.3 and 6 times.

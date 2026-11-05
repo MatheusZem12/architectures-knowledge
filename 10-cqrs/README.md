@@ -165,4 +165,4 @@ go test ./...
 
 **Measurement:** 10 files, 605 lines of code and 5 packages. See the [full comparison](../RESULTS.md).
 
-**Next step:** [code principles](../principles/README.md), which apply to any of the architectures.
+**Next step:** [11. Vertical Slice](../11-vertical-slice/README.md).

@@ -134,9 +134,9 @@ busy    map[string]bool // orders in the middle of a pay or cancel chain
 **The flow has no single place to read.** In folder 07, the saga is one function. Here, it is spread across modules. If
 something goes wrong, you need the event log to understand what happened.
 
-**It has a measured cost.** Each event goes through a queue and a goroutine switch. In three runs, the p50 of
-`POST /orders` was 95 to 101 µs, against about 83 µs for the other single-process folders: about 20% more. It is small
-next to the 500 µs of folder 07, and it would be larger with a real broker over the network.
+**It has a measured cost.** Each event goes through a queue and a goroutine switch. In every run, the p50 of
+`POST /orders` stayed about 20% above the other single-process folders: 94 to 96 µs against about 80 µs in the latest
+runs. It is small next to the 487 µs of folder 07, and it would be larger with a real broker over the network.
 
 ## Choreography and orchestration
 
