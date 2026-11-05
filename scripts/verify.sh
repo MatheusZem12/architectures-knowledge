@@ -38,7 +38,7 @@ run_contract() {
 failures=0
 targets=("$@")
 if [ ${#targets[@]} -eq 0 ]; then
-  mapfile -t targets < <(cd "$ROOT" && ls -d 0*/ | tr -d /)
+  mapfile -t targets < <(cd "$ROOT" && ls -d [0-9][0-9]-*/ | tr -d /)
 fi
 
 for dir in "${targets[@]}"; do

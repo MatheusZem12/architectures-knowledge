@@ -13,6 +13,9 @@ use (
 	./07-microservices/services/notifications
 	./07-microservices/services/orders
 	./07-microservices/services/payments
+	./08-mvc
+	./09-event-driven
+	./10-cqrs
 	./contract
 	./principles
 )

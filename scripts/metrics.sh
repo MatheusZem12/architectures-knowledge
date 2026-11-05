@@ -39,7 +39,7 @@ rss_kb() { # adds up the memory of the process and its direct children
   echo "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
 } > "$OUT"
 
-for dir in $(cd "$ROOT" && ls -d 0*/ | tr -d /); do
+for dir in $(cd "$ROOT" && ls -d [0-9][0-9]-*/ | tr -d /); do
   cd "$ROOT/$dir"
   files=$(find . -name '*.go' | wc -l)
   code=$(count_lines . -not -name '*_test.go')
