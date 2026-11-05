@@ -1,0 +1,8 @@
+<!doctype html>
+<title>Order {{.ID}}</title>
+<h1>Order {{.ID}}: {{.Status}}</h1>
+<ul>
+{{range .Items}}<li>{{.Quantity}} x <a href="/products/{{.ProductID}}">{{.ProductID}}</a> at {{.UnitPriceCents}} cents</li>
+{{end}}</ul>
+<p>Subtotal: {{.SubtotalCents}}. Discount: {{.DiscountCents}}. Shipping: {{.ShippingCents}}.</p>
+<p><strong>Total: {{.TotalCents}} cents</strong></p>

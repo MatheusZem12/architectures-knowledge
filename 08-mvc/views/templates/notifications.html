@@ -1,0 +1,7 @@
+<!doctype html>
+<title>Notifications</title>
+<h1>Notifications</h1>
+<ul>
+{{range .}}<li>{{.Type}}: <a href="/orders/{{.OrderID}}">{{.OrderID}}</a></li>
+{{else}}<li>Nothing yet.</li>
+{{end}}</ul>
