@@ -62,6 +62,11 @@ for dir in "${targets[@]}"; do
   PORT="$PORT" "$BIN/$dir" >"$BIN/$dir.log" 2>&1 &
   run_contract "in memory" $! || failures=$((failures+1))
 
+  if [ "$dir" = "12-event-sourcing" ]; then # the promise of event sourcing: the log alone rebuilds everything
+    EVENT_FILE="$BIN/events.jsonl" PORT="$PORT" "$BIN/$dir" >"$BIN/$dir.log" 2>&1 &
+    run_contract "event log on disk" $! || failures=$((failures+1))
+  fi
+
   if [ "$dir" = "05-hexagonal" ]; then # the hexagonal promise: swap the adapter without touching the core
     STORE=json DATA_FILE="$BIN/data.json" PORT="$PORT" "$BIN/$dir" >"$BIN/$dir.log" 2>&1 &
     run_contract "JSON file adapter" $! || failures=$((failures+1))

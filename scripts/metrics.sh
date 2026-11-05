@@ -48,8 +48,12 @@ for dir in $(cd "$ROOT" && ls -d [0-9][0-9]-*/ | tr -d /); do
 
   if [ -x ./run.sh ]; then
     ./build.sh "$BIN/$dir"
-    processes=6
-    packages=$(cd services && for s in */; do (cd "$s" && go list ./... ); done | wc -l)
+    processes=$(find "$BIN/$dir" -maxdepth 1 -type f | wc -l)
+    if [ -f go.mod ]; then
+      packages=$(go list ./... | wc -l)
+    else
+      packages=$(cd services && for s in */; do (cd "$s" && go list ./... ); done | wc -l)
+    fi
     BIN_DIR="$BIN/$dir" BASE_PORT="$PORT" ./run.sh >/dev/null 2>&1 &
     size=$(du -cb "$BIN/$dir"/* | tail -1 | cut -f1)
   else

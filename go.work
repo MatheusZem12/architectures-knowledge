@@ -16,6 +16,11 @@ use (
 	./08-mvc
 	./09-event-driven
 	./10-cqrs
+	./11-vertical-slice
+	./12-event-sourcing
+	./13-serverless
+	./14-soa
+	./15-microkernel
 	./contract
 	./principles
 )
